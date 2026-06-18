@@ -1,374 +1,322 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website</title>
-    <link rel="stylesheet" href="portfolio.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="portfolio-nav" id="navbar">
-        <div class="nav-container">
-            <button class="nav-logo" onclick="scrollToSection('home')">Portfolio</button>
-            
-            <div class="nav-links" id="navLinks">
-                <button class="nav-link" onclick="scrollToSection('home')">Home</button>
-                <button class="nav-link" onclick="scrollToSection('about')">About</button>
-                <button class="nav-link" onclick="scrollToSection('projects')">Projects</button>
-                <button class="nav-link" onclick="scrollToSection('skills')">Skills</button>
-                <button class="nav-link" onclick="scrollToSection('contact')">Contact</button>
-            </div>
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.80);
+}
 
-            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
-                <svg class="icon" id="menuIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
 
-        <div class="mobile-menu hidden" id="mobileMenu">
-            <button onclick="scrollToSection('home')">Home</button>
-            <button onclick="scrollToSection('about')">About</button>
-            <button onclick="scrollToSection('projects')">Projects</button>
-            <button onclick="scrollToSection('skills')">Skills</button>
-            <button onclick="scrollToSection('contact')">Contact</button>
-        </div>
-    </nav>
+body{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F6F6F6;
+}
 
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <div class="hero-badge">Hello, I'm Angel Louise Mendoza</div>
-            <h1>Full Stack Developer</h1>
-            <p style="color: #64748b; margin-top: 1.5rem; margin-bottom: 2rem;">
-                I build beautiful and interactive website
-            </p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="scrollToSection('projects')">
-                    View My Work
-                </button>
-                <button class="btn btn-outline" onclick="scrollToSection('contact')">
-                    Get In Touch
-                </button>
-            </div>
-        </div>
+body::selection{
+  color: rgb(65, 253, 65);
+  background-color: black;
+}
 
-        <div class="scroll-indicator">
-            <button class="scroll-btn" onclick="scrollToSection('about')">
-                <svg class="icon animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-            </button>
-        </div>
-    </section>
+section{
+  height: 100vh;
+  scroll-snap-align: start;
+}
 
-    <!-- About Section -->
-    <section id="about" class="section section-bg-white">
-        <div class="section-container">
-            <div style="max-width: 72rem; margin: 0 auto;">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-description">
-                    Hi, I’m Angel, a passionate front-end developer who thrives on building clean, responsive, and user-friendly web experiences. I love the moment when code turns into something people can click, scroll, and interact with :)
-                </p>
-                
-                <div class="grid grid-md-2 grid-lg-3">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                            </svg>
-                        </div>
-                        <h3 style="margin-bottom: 0.5rem;">Clean Code</h3>
-                        <p style="color: #64748b;">Writing maintainable, scalable code following best practices and modern standards.</p>
-                    </div>
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EEEEEE;
+  border-bottom: 1px solid rgb(225, 225, 225);
+  padding: 2rem 1rem 1rem 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
 
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                            </svg>
-                        </div>
-                        <h3 style="margin-bottom: 0.5rem;">Creative Design</h3>
-                        <p style="color: #64748b;">Crafting beautiful interfaces that are both aesthetically pleasing and user-friendly.</p>
-                    </div>
+.logo{
+  flex-shrink: 0;
+  color: rgb(42, 41, 41);
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
 
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
-                        <h3 style="margin-bottom: 0.5rem;">Performance</h3>
-                        <p style="color: #64748b;">Building fast, optimized applications that deliver exceptional user experiences.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.navlinks{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
 
-    <!-- Projects Section -->
-    <section id="projects" class="section section-bg-gray">
-        <div class="section-container">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-description">
-                A selection of my recent work showcasing different aspects of development and design.
-                Each project represents a unique challenge and creative solution.
-            </p>
+.navlinks ul{
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
 
-            <div class="grid grid-md-2 grid-lg-3" style="max-width: 88rem; margin: 0 auto;">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div style="overflow: hidden; height: 12rem;">
-                        <img
-                            src="https://i.pinimg.com/1200x/11/a4/b6/11a4b6255be730aac471843a8470bf26.jpg"
-                            alt="E-Commerce Platform"
-                            class="project-image"
-                        />
-                    </div>
-                    <div class="project-content">
-                        <h3 style="margin-bottom: 0.5rem;">Library Management System</h3>
-                        <p style="color: #64748b; margin-bottom: 1rem; flex-grow: 1;">
-                           automates the organization, tracking, and access of books and resources to streamline lending, returns, and inventory for efficient library operations..
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">PHP</span>
-                            <span class="tag">Javascript</span>
-                        </div>
-                        <div class="project-links">
-                            <button class="btn btn-primary btn-sm" style="flex: 1;">
-                                View Live
-                            </button>
-                            <button class="btn btn-outline btn-sm">
-                                GitHub
-                            </button>
-                        </div>
-                    </div>
-                </div>
+.navlinks a{
+  font-size: 23px;
+}
 
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div style="overflow: hidden; height: 12rem;">
-                        <img
-                            src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                            alt="Task Management App"
-                            class="project-image"
-                        />
-                    </div>
-                    <div class="project-content">
-                        <h3 style="margin-bottom: 0.5rem;">Task Management App(in progress)</h3>
-                        <p style="color: #64748b; margin-bottom: 1rem; flex-grow: 1;">
-                            A collaborative task manager with drag-and-drop functionality, team workspaces, and real-time updates.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Next.js</span>
-                            <span class="tag">Tailwind</span>
-                            <span class="tag">Supabase</span>
-                        </div>
-                        <div class="project-links">
-                            <button class="btn btn-primary btn-sm" style="flex: 1;">
-                                View Live
-                            </button>
-                            <button class="btn btn-outline btn-sm">
-                                GitHub
-                            </button>
-                        </div>
-                    </div>
-                </div>
+.navlinks a:link{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
 
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div style="overflow: hidden; height: 12rem;">
-                        <img
-                            src="https://images.unsplash.com/photo-1700887937204-69f8b8400ace?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                            alt="Creative Portfolio"
-                            class="project-image"
-                        />
-                    </div>
-                    <div class="project-content">
-                        <h3 style="margin-bottom: 0.5rem;">Creative Portfolio</h3>
-                        <p style="color: #64748b; margin-bottom: 1rem; flex-grow: 1;">
-                            A stunning portfolio website for a creative agency with smooth animations and an interactive gallery.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Motion</span>
-                            <span class="tag">Three.js</span>
-                            <span class="tag">WebGL</span>
-                        </div>
-                        <div class="project-links">
-                            <button class="btn btn-primary btn-sm" style="flex: 1;">
-                                View Live
-                            </button>
-                            <button class="btn btn-outline btn-sm">
-                                GitHub
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.navlinks a:visited{
+  color: rgb(0, 0, 0);
+}
 
-    <!-- Skills Section -->
-    <section id="skills" class="section section-bg-white">
-        <div class="section-container">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <p class="section-description">
-                A comprehensive toolkit of modern technologies and tools I use to bring ideas to life.
-            </p>
+.navlinks a:hover{
+  color: rgb(110, 108, 108);
+}
 
-            <div style="max-width: 80rem; margin: 0 auto;">
-                <div class="skill-category">
-                    <h3 style="margin-bottom: 1.5rem;">Frontend</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Javascript</span>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                    </div>
-                </div>
+.navlinks button{
+  padding: 0.7rem;
+  border: 1px solid rgb(120, 120, 120);
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
 
-                <div class="skill-category">
-                    <h3 style="margin-bottom: 1.5rem;">Backend</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                    </div>
-                </div>
+.navlinks button:hover{
+  text-decoration: none;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  opacity: 0.9;  
+}
 
-                <div class="skill-category">
-                    <h3 style="margin-bottom: 1.5rem;">Tools & Others</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Figma</span>
-                    </div>
-                </div>
+.greetings{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding-bottom: 5rem;
+  gap: 30px ;
+  z-index: 100;
+  scroll-snap-align: start;
+}
 
-                <div class="learning-box">
-                    <h3 style="margin-bottom: 1rem;">Always Learning</h3>
-                    <p style="color: #64748b;">
-                        The tech industry is constantly evolving, and I'm committed to staying at the forefront.
-                        Currently exploring AI/ML integration, WebAssembly, and advanced animation techniques.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section section-bg-gray">
-        <div class="section-container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-description">
-                Have a project in mind or want to collaborate? I'd love to hear from you.
-                Feel free to reach out through the form below or connect with me on social media.
-            </p>
+.greetings .name{
+  font-size: 45px;
+  font-family: "Andale Mono", monospace;
+  text-shadow: 0px 2px 4pxrgb(0, 0, 0)B;
+}
 
-            <div style="max-width: 64rem; margin: 0 auto;" class="grid grid-md-2">
-                <div>
-                    <h3 style="margin-bottom: 1.5rem;">Send a Message</h3>
-                    <form class="contact-form" onsubmit="handleFormSubmit(event)">
-                        <input type="text" placeholder="Your Name" required class="form-input" />
-                        <input type="email" placeholder="Your Email" required class="form-input" />
-                        <textarea placeholder="Your Message" required class="form-textarea"></textarea>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+.greetings .title{
+  display: flex;
+  justify-content: center;
+  font-size: 45px;
+  font-family: "Andale Mono", monospace;
+  color: rgba(0, 0, 0, 0.70);
+  stroke: rgba(0, 0, 0, 0.50);
+}
 
-                <div>
-                    <h3 style="margin-bottom: 1.5rem;">Connect With Me</h3>
-                    <p style="color: #64748b; margin-bottom: 2rem;">
-                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-                        Let's create something amazing together!
-                    </p>
+.greetings h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 2px 2px 4px rgba(177, 177, 177, 0.493);
+}
 
-                    <div class="social-links">
-                        <a href="https://github.com/Gellyform" class="social-link" target="_blank">
-                            <div class="social-icon">
-                                <svg class="icon-sm" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </div>
-                            <span>GitHub</span>
-                        </a>
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 100px;
+}
 
-                        <a href="https://www.linkedin.com/in/mendoza-angel-louise-895876310" class="social-link" target="_blank">
-                            <div class="social-icon">
-                                <svg class="icon-sm" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </div>
-                            <span>LinkedIn</span>
-                        </a>
+.greetingbuttons{
+  border-radius: 15px;
+  border-style: none;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
 
-                        <a href="#" class="social-link" target="_blank">
-                            <div class="social-icon">
-                                <svg class="icon-sm" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                                </svg>
-                            </div>
-                            <span>Twitter</span>
-                        </a>
+#about {
+  background-color: rgb(12, 7, 7);
+  color: #E4E4E4;
+}
 
-                        <a href="mailto:mendozalouise@gmail.com" class="social-link">
-                            <div class="social-icon">
-                                <svg class="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <span>Email</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+#projects{
+  text-align: center;
+  background-color: #E4E4E4;
+  color: rgba(0, 0, 0, 0.70);
+  width: 9rem;
+  border-radius: 15px;
+}
 
-            <footer>
-                <p>© Angel Louise Mendoza Portfolio. All rights reserved.</p>
-            </footer>
-        </div>
-    </section>
+.buttons a{
+  text-decoration: none;
+  background-color: transparent;
+}
 
-    <script>
-        // Navigation scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+.buttons h2:hover{
+  text-decoration: none;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  opacity: 0.9;
+  background-color: transparent;
+}
 
-        // Smooth scroll to section
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobileMenu');
-                mobileMenu.classList.add('hidden');
-            }
-        }
+.greetings i{
+  transition: transform 0.3s ease;
+}
 
-        // Toggle mobile menu
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
-        }
+.arrow{
+  position: absolute;
+  bottom: 2rem;
+  font-size: 2rem;
+  background-color: transparent;
+}
 
-        // Handle form submission
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            alert('Form submitted! (This is a demo)');
-        }
-    </script>
-</body>
-</html>
+.arrow:link{
+  background: transparent;
+}
 
+.arrow i:hover{
+  text-decoration: none;
+  transform: translateY(-7px);
+  text-shadow: 1px 1px rgba(128, 128, 128, 0.461);
+  background-color: transparent;
+}
+
+.secondpage{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #D9D9D9;
+  padding-top: 9rem;
+  gap: 5rem;
+}
+
+.aboutme{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title{
+  font-size: 43px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 3%;
+}
+
+.aboutdescription{
+   white-space: pre-wrap;
+   font-size: 25px;
+   margin-left: 4rem;
+}
+
+.boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+  background-color: #EEEEEE;
+  width: 336px;
+  height: 196px;
+  border-radius: 12px;
+  padding: 1.5rem;
+  gap: 0.4rem;
+  box-shadow: 0px 0px 7px rgb(127, 127, 127);
+}
+
+.box span{
+  font-size: 2rem;
+}
+
+.box h2{
+  font-size: 1.8rem;
+}
+
+.thirdpage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #F6F6F6;
+  padding-top: 9rem;
+  gap: 5rem;
+}
+
+.contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact p{
+  white-space: pre-wrap;
+  font-size: 25px;
+  color: #504E4E;
+}
+
+.connect{
+  display: flex;
+  flex-direction: row;
+  gap: 10rem;
+}
+
+.socials{
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem
+}
+
+.socialpage{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.socialarea{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.socials p{
+  white-space: pre-wrap;
+  font-size: 23px;
+  color: #504E4E;
+}
+
+.sociallogo{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 325px;
+  height: 83px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 2rem;
+  gap: 0.7rem;
+}
+
+.sociallogo i{
+  font-size: 3rem;
+}
 
 
 
