@@ -294,6 +294,11 @@ nav{
   padding: 2rem;
   gap: 1rem;
   box-shadow: 0px 0px 7px rgb(127, 127, 127);
+  transition: transform 0.3s ease;
+}
+
+.servicecards:hover{
+    transform: scale(1.02);
 }
 
 .servicecards p{
