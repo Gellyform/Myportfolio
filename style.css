@@ -239,6 +239,7 @@ nav{
   padding: 1.5rem;
   gap: 0.4rem;
   box-shadow: 0px 0px 7px rgb(127, 127, 127);
+  transition: transform 0.3s ease;
 }
 
 .box span{
@@ -247,6 +248,10 @@ nav{
 
 .box h2{
   font-size: 1.8rem;
+}
+
+.box:hover{
+  transform: scale(1.02);
 }
 
 
