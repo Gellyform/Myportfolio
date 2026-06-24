@@ -354,7 +354,7 @@ nav{
 .connect{
   display: flex;
   flex-direction: row;
-  gap: 10rem;
+  gap: 8rem;
 }
 
 .socials{
