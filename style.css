@@ -495,7 +495,7 @@ form{
   .greetings .name{
     font-size: 20px;
     font-family: "Andale Mono", monospace;
-    text-shadow: 0px 2px 4px rgb(0, 0, 0);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.20);
   }
 
   .greetings .title{
