@@ -111,7 +111,7 @@ nav{
 .greetings .name{
   font-size: 45px;
   font-family: "Andale Mono", monospace;
-  text-shadow: 0px 2px 4pxrgb(0, 0, 0)B;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.20);
 }
 
 .greetings .title{
@@ -120,7 +120,6 @@ nav{
   font-size: 45px;
   font-family: "Andale Mono", monospace;
   color: rgba(0, 0, 0, 0.70);
-  stroke: rgba(0, 0, 0, 0.50);
 }
 
 .greetings h1{
@@ -496,7 +495,7 @@ form{
   .greetings .name{
     font-size: 20px;
     font-family: "Andale Mono", monospace;
-    text-shadow: 0px 2px 4pxrgb(0, 0, 0)B;
+    text-shadow: 0px 2px 4px rgb(0, 0, 0);
   }
 
   .greetings .title{
@@ -505,7 +504,6 @@ form{
     font-size: 20px;
     font-family: "Andale Mono", monospace;
     color: rgba(0, 0, 0, 0.70);
-    stroke: rgba(0, 0, 0, 0.50);
   }
 
   .buttons{
@@ -656,7 +654,7 @@ form{
     background-color:#EEEEEE;
     border-radius: 12px;
     padding: 1rem;
-    gap: 0rem;
+    gap: 1rem;
     box-shadow: 0px 0px 7px rgb(127, 127, 127);
     transition: transform 0.3s ease;
   }
